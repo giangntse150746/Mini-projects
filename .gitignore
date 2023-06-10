@@ -1,14 +1,23 @@
+# Zip files
+
 .zip
 */.zip
 
-*/.git
+# End Zip files
+
+# Git stuffs in subfolders
+
+*/.git/
 */.gitignore
 
-loading-animation/.git
-loading-animation/.gitignore
+# End git stuffs
+
+# Folders are already has repository
 
 loading-animation/
 react-firebase-upload-file/
 react-preview-pdf/
 react-super-chatbox/
 ToDoList/
+
+# End folders
