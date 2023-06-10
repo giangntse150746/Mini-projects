@@ -3,3 +3,12 @@
 
 */.git
 */.gitignore
+
+loading-animation/.git
+loading-animation/.gitignore
+
+loading-animation/
+react-firebase-upload-file/
+react-preview-pdf/
+react-super-chatbox/
+ToDoList/
