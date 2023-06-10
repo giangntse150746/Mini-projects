@@ -1,0 +1,41 @@
+html,
+body,
+main,
+section,
+div {
+  scroll-behavior: smooth;
+  animation-duration: 0.5s ease;
+  transition: 0.5s ease-in-out;
+}
+
+html,
+body,
+.page-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.page-container {
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  overflow-y: scroll;
+}
+.section,
+.scroll-container {
+  scroll-snap-align: start end;
+  width: 100%;
+  height: auto;
+  scroll-margin-block-end: 30vh;
+  scroll-margin-block-start: 5vh;
+  transition: 2s ease-in-out;
+}
+
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 1000;
+}
+.top-0 {
+  top: 0;
+}

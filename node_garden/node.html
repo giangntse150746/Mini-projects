@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>node</title>
+    <link rel="stylesheet" href="/node_garden/node_files/node.style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="module"  src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="401908117605-vofu7m8maarbv0c6remdnf8n1r568060.apps.googleusercontent.com">
+</head>
+
+<body>
+    <div id="form">
+        <h1>LOG IN HERE!!!</h1>
+        <!-- Google Login -->
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <script>
+            function onSignIn(googleUser) {
+                var auth2 = gapi.auth2.init();
+                if (auth2.isSignedIn.get()) {
+                    var profile = auth2.currentUser.get().getBasicProfile();
+                    console.log('ID: ' + profile.getId());
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log('Image URL: ' + profile.getImageUrl());
+                    console.log('Email: ' + profile.getEmail());
+                }
+
+                var id_token = googleUser.getAuthResponse().id_token;
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:8084/Demo_JavaMail/GoogleSignIn');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                  console.log('Signed in as: ' + xhr.responseText);
+                };
+                xhr.send('idtoken=' + id_token + "");
+
+                //disable auto login for the next time login
+                gapi.auth2.getAuthInstance().disconnect().then(function () {
+                    document.location.href = "http://localhost:8084/Demo_JavaMail/UserVerify?txtGmail=" + profile.getEmail();
+                    console.log('Disconneted.');
+                });
+            }
+        </script>
+    </div>
+    <canvas id="background">Node Garden</canvas>
+    <script src="/node_garden/node_files/node.script.js"></script>
+</body>
+
+</html>

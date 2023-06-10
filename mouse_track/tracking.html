@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Track Mouse </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="mouseTrack.css">
+</head>
+
+<body>
+    <div id="coords">
+        <p id="demo"></p>
+    </div>
+    <canvas id="myCanvas" width="100" height="100" >
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+    <script> // draw a circle
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(50,50,40,0,2*Math.PI);
+        ctx.stroke();
+    </script> 
+    <canvas id="bgCanvas" width="1920" height="1080">
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+</body>
+
+<script src="mouseTrack.js"></script>
+
+</html>

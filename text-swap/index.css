@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+    margin-top: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://picsum.photos/id/190/1920/1080);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-items: center;
+}
+
+.quote {
+    text-align: center;
+    font-size: min(6vw, 120px);
+    white-space: nowrap;
+}
+
+.quote blockquote {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.quote p {
+    line-height: 1.1;
+    font-family: "Amiri", serif;
+    text-transform: uppercase;
+}
+
+.quote p span {
+    display: block;
+}
+
+.quote .cut-text-container {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 0px 50px;
+    animation: moveCutClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+}
+
+.quote .cut-text-container .cut-text {
+    background-image: url(https://picsum.photos/id/190/1920/1080);
+    margin: 0;
+}
+
+.quote .cut-text-container span {
+    color: #000;
+    mix-blend-mode: lighten;
+    background-color: #fff;
+}
+
+.quote .colored-text {
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: moveTopColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+}
+
+.quote .colored-text.second {
+    top: 50%;
+    animation: moveBottomColoredClip 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+}
+
+.quote figcaption {
+    line-height: 0.4;
+}
+
+.quote cite {
+    font-style: normal;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.4em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    animation: fadeInAuthor 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+}
+
+@keyframes moveCutClip {
+    0%,
+    25% {
+        clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 50%, 0% 50%);
+    }
+    75%,
+    100% {
+        clip-path: polygon(35px 50%, 100% 50%, calc(100% - 35px) 100%, 0% 100%);
+    }
+}
+
+@keyframes moveTopColoredClip {
+    0%,
+    25% {
+        clip-path: polygon(35px -100%, 100% -100%, calc(100% - 35px) 0%, 0% 0%);
+    }
+    75%,
+    100% {
+        clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
+    }
+}
+
+@keyframes moveBottomColoredClip {
+    0%,
+    25% {
+        clip-path: polygon(35px 0%, 100% 0%, calc(100% - 35px) 100%, 0% 100%);
+    }
+    75%,
+    100% {
+        clip-path: polygon(35px 100%, 100% 100%, calc(100% - 35px) 200%, 0% 200%);
+    }
+}
+
+@keyframes fadeInAuthor {
+    0%,
+    25% {
+        opacity: 0;
+    }
+    75%,
+    100% {
+        opacity: 1;
+    }
+}

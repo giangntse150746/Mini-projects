@@ -1,0 +1,25 @@
+
+#coords {
+    visibility: hidden;
+    position: absolute;
+    background-color: black;
+    color: aliceblue;
+    font-family: cursive;
+    width: 270px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    top: 0;
+    left: 0;
+}
+
+#myCanvas {
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    border: 1px #000;
+}

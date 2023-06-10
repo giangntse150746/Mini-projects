@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: NTR;
+    src: url('/node_garden/node_files/NTR-Regular.ttf');
+}
+* {
+    font-family: NTR;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d1e22;
+}
+
+#form {
+    width: 60%;
+    float: left;
+    height: 60%;
+    position: absolute;
+    z-index: 0;
+    background-color: aquamarine;
+    filter: opacity(0.4) drop-shadow(0 4px 4px #000);
+    border-radius: 10px;
+    left: 20%;
+    top: 20%;
+    text-align: center;
+}
+#form h1 {
+    width: 100%;
+    float: left;
+    filter: opacity(1);
+    position: relative;
+}
+#form .g-signin2 {
+    filter: opacity(1);
+    margin-left: 57%;
+    margin-top: 24%;
+    transform: scale(1.8);
+}
+
+canvas {
+    position: absolute;
+    z-index: -1;
+    display: block;
+}
+
+#stats {
+    left: auto !important;
+    right: 0;
+}

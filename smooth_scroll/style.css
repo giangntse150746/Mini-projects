@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial';
+    font-size: 2em;
+}
+
+section {
+    padding: 8em;
+    height: 100vh;
+}
+
+section:nth-of-type(2) {
+    background-color: darkblue;
+    color: aliceblue;
+}
+.custom {
+    width: 500px;
+    height: 500px;
+    overflow: auto;
+}
+/*
+.container {
+    width: 100%;
+    height: 3840px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.container div {
+    width: 100%;
+    float: left;
+    height: 25%;    
+}
+#p1 {
+    background-color: antiquewhite;
+}
+#p2 {
+    background-color: cornflowerblue;
+}
+#p3 {
+    background-color: darkkhaki;
+}
+#p4 {
+    background-color: indigo;
+}
+
+#my-scrollbar {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }

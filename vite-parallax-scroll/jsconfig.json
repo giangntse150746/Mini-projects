@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@admin/*": ["admin/*"],
+      "@csyt/*": ["csyt/*"],
+      "@pqm/*": ["pqm/*"],
+      "@authorize/*": ["authorize/*"],
+      "@assets/*": ["app/assets/*"],
+      "@components/*": ["app/components/*"],
+      //style
+      "@variables": ["assets/styles/index.css"],
+    }
+  },
+  "baseUrl": ".",
+  "include": [
+    "src"
+  ]
+}

@@ -1,0 +1,20 @@
+.xzoom-gallery {
+    margin-top: 10px
+}
+
+.xzoom {
+    margin-top: 40px
+}
+body {
+    background-color: #E0E0E0;
+}
+
+.xzoom-container {
+    width: 100vw !important;
+    height: 100vh !important;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

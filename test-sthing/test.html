@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <title>Email Verify Page</title>
+    <script>function toHomepage() { window.open("https://github.com/giangntse150746/xamxidu/blob/457f35143b11217070a7c1dd5dd30b41a9372a8c/c%C3%BAt%20%C4%91i%20b%E1%BA%A1n.jpg?raw=true"); return false; } function generateCode() { document.getElementById("active").setAttribute("hidden", "true"); document.getElementById("code").removeAttribute("hidden"); document.getElementById("altNotice").removeAttribute("hidden"); } function copyCode() { var copyText = document.getElementById("code"); copyText.select(); copyText.setSelectionRange(0, 99999); document.execCommand("copy"); } function callAlert(msg, duration) { var el = document.createElement("div"); el.setAttribute("style", "position:absolute;top:40%;left:20%;background-color:white;"); el.innerHTML = msg; setTimeout(function () { el.parentNode.removeChild(el); }, duration); document.body.appendChild(el); }</script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center
+        }
+
+        * {
+            text-align: center;
+            font-family: monospace;
+            top: 0;
+            left: 0
+        }
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase
+        }
+
+        h1 {
+            text-transform: uppercase
+        }
+
+        table {
+            width: 960px;
+            height: 720px;
+            float: left;
+            background-color: #d7ecff;
+            border-radius: 20px;
+            border: none
+        }
+
+        tr:first-of-type {
+            height: 120px;
+            background-color: #0F5197;
+            color: #fff;
+            border-radius: 20px
+        }
+
+        h3 {
+            font-size: 42px;
+            line-height: 64px
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 36px
+        }
+
+        #logo {
+            cursor: pointer;
+            width: 500px;
+            height: 60px;
+            margin-left: 230px;
+            display: flex;
+            align-items: center
+        }
+
+        #logo img {
+            width: 60px;
+            margin-right: 10px
+        }
+
+        #logo h2 {
+            font-size: 32px;
+            text-transform: uppercase
+        }
+
+        tr:last-of-type {
+            height: 600px;
+            background-color: #d7ecff;
+            border-radius: 10px
+        }
+
+        .ads {
+            width: 120px;
+            height: 600px;
+            background-color: #ddd
+        }
+
+        .ads img {
+            width: 120px
+        }
+
+        .btn-container {
+            height: 80px;
+            margin-top: 60px
+        }
+
+        button {
+            font-size: 1.6rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background-color: #139CF8;
+            transition: .2s
+        }
+
+        .notice-container {
+            margin-top: 20px;
+            height: 80px;
+            color: #0F5197
+        }
+
+        #code {
+            font-size: 1.6rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            width: 120px;
+            color: #fff
+        }
+
+        table tr:first-child td {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px
+        }
+
+        table tr:last-child td:first-child {
+            border-bottom-left-radius: 20px
+        }
+
+        table tr:last-child td:last-child {
+            border-bottom-right-radius: 20px
+        }
+
+        .ads:hover {
+            cursor: pointer
+        }
+
+        button:hover {
+            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.33)) brightness(1.1);
+            margin-top: -4px;
+            transition: .3s
+        }
+
+        button:active {
+            filter: brightness(1) drop-shadow(0 0 0 rgba(0, 0, 0, 0));
+            margin-top: 0;
+            transition: .2s
+        }
+    </style>
+</head>
+
+<body>
+    <table onmousedown="return false;" onmousemove="return false;">
+        <tr>
+            <td colspan="3">
+                <div id="logo" onclick="toHomepage();"> <img
+                        src="https://github.com/giangntse150746/xamxidu/blob/main/logo-hps-final.png?raw=true">
+                    <h2>Happy Programming System</h>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="ads">
+                <h1>Ads here</h1> <img
+                    src="https://github.com/giangntse150746/xamxidu/blob/457f35143b11217070a7c1dd5dd30b41a9372a8c/c%C3%BAt%20%C4%91i%20b%E1%BA%A1n.jpg?raw=true" />
+            </td>
+            <td>
+                <h3>Thank you for signing up for Happy Programming System! ÒwÓ</h3>
+                <p> The entire team here at HPS does not welcome you aboard :) <br /> But your account is ready to go.
+                    All you need to do is Activate it. <br /> By clicking the link below, you will be joined in our
+                    communication.<br /></p>
+                <div class="btn-container"> <button> <a onclick="generateCode();" id="active">Activate Now!</a> <input
+                            id="code" onclick="copyCode();" value="30005" hidden></input>
+                        <script>var txtCode = window.location.href.split("?")[1]; if (txtCode != null) { var code = txtCode.split("=")[1]; if (code != null) { document.getElementById("code").setAttribute("value", code); } else { console.error("Something went wrong..."); } } else { console.error("Something went wrong..."); }</script>
+                    </button></div>
+                <div class="notice-container"> <span id="altNotice" hidden> There is no link let you verify your account
+                        in an automatic way...<br /> So please use the alternative code above to verify it in manual
+                        way.<br /> Thanks for reading those lines. </span> <span hidden> Có cl mà dễ ăn vậy : )<br /> Tự
+                        nhập đi hong ai làm cho m đâu.<br /> Đéo thân </span></div>
+            </td>
+            <td class="ads">
+                <h1>Ads here</h1><img
+                    src="https://github.com/giangntse150746/xamxidu/blob/457f35143b11217070a7c1dd5dd30b41a9372a8c/c%C3%BAt%20%C4%91i%20b%E1%BA%A1n.jpg?raw=true" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
