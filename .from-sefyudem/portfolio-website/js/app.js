@@ -100,6 +100,9 @@ var mySwiper = new Swiper(".swiper-container", {
   },
 });
 
-document.onload(() => {
-  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-});
+function loadPage() {
+  document.onload(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  });
+}
+loadPage();
