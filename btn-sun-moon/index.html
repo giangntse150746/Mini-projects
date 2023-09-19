@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTN</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="day">
+    <div id="background" class="background day"></div>
+    <div id="switcherContainer" class="selectable switch-container day">
+      <div id="switch" class="selectable switch"></div>
+      <img
+        id="sun"
+        alt="sun"
+        class="absolute sun"
+        src="https://drive.google.com/uc?export=view&id=1C1dnoff_X9HUSM9RVpUlntWrZUGqFH1i"
+        width="90"
+      />
+      <img
+        id="moon"
+        alt="moon"
+        class="absolute moon"
+        src="https://drive.google.com/uc?export=view&id=1muQl9XeZ_9KkJXhxrqPN0WOoQEv0hMMk"
+        width="90"
+      />
+    </div>
+
+    <div class="h-20 w-30"></div>
+
+    <div id="resources" class="flex gap-2">
+      <img
+        alt="moon"
+        src="https://drive.google.com/uc?export=view&id=1muQl9XeZ_9KkJXhxrqPN0WOoQEv0hMMk"
+        width="90"
+      />
+      <img
+        alt="sun"
+        src="https://drive.google.com/uc?export=view&id=1C1dnoff_X9HUSM9RVpUlntWrZUGqFH1i"
+        width="90"
+      />
+    </div>
+  </body>
+  <script>
+    let body = document.getElementsByTagName("BODY")[0]
+    let background = document.getElementById("background");
+    let sun = document.getElementById("sun");
+    let moon = document.getElementById("moon");
+    let switcher = document.getElementById("switch");
+    let switcherContainer = document.getElementById("switcherContainer");
+
+    switcherContainer.addEventListener("click", clickNe);
+    // switcher.addEventListener("click", clickNe);
+
+    function clickNe() {
+      if (switcherContainer.classList.contains("day")) {
+        // day to night
+        switcher.classList.remove("slide-left");
+        switcher.classList.add("slide-right");
+        sun.classList.remove("slide-in-top");
+        sun.classList.add("slide-out-top");
+        moon.classList.remove("slide-out-bottom");
+        moon.classList.add("slide-in-bottom");
+      } else {
+        // night to day
+        switcher.classList.remove("slide-right");
+        switcher.classList.add("slide-left");
+        sun.classList.remove("slide-out-top");
+        sun.classList.add("slide-in-top");
+        moon.classList.remove("slide-in-bottom");
+        moon.classList.add("slide-out-bottom");
+      }
+      body.classList.toggle("day");
+      background.classList.toggle("day");
+      switcherContainer.classList.toggle("day");
+    }
+  </script>
+</html>
