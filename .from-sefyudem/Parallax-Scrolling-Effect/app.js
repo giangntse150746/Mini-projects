@@ -12,7 +12,7 @@ let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
 
 window.addEventListener('scroll', () => {
-    let scroll = window.pageYOffset;
+    let scroll = window.scrollY;
     let sectionY = section.getBoundingClientRect();
 
     translate.forEach(element => {
