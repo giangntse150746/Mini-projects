@@ -19,6 +19,7 @@ body {
 body.day {
   background-color: #fff;
 }
+
 .background {
   position: absolute;
   top: 0;
@@ -32,23 +33,20 @@ body.day {
   background-color: #fd6e5222;
 }
 
-.selectable {
-  cursor: pointer;
-}
-
 .switch-container {
   position: relative;
+  display: block;
   width: 180px;
   height: 90px;
   border-radius: 5rem;
   overflow: hidden;
   background-color: #2a40be;
   transition: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
 }
 .switch-container.day {
   background-color: #fd6e52;
 }
-
 .switch {
   position: absolute;
   z-index: 1;
@@ -63,26 +61,36 @@ body.day {
 }
 
 .sun {
+  display: block;
   bottom: 0.5rem;
   right: -1rem;
+  transform: rotate(0);
 }
 .moon {
+  display: block;
   top: 0.5rem;
   left: -1rem;
+  transform: rotate(0);
   transform: translateY(180px);
 }
 
 /* hover */
-/* .switch-container:hover {
-  transition: 0.3s;
+/* .switch-container:hover .sun.selected {
+  -webkit-transform: rotate(15deg) scale(1.2) translate(1em, 0.75em);
+  transform: rotate(15deg) scale(1.2) translate(1em, 0.75em);
+  transition: 0.5s ease-in-out;
 }
-.switch-container:hover .sun,
-.switch-container:hover .moon {
-  transform: scale(1.5);
-  transition: 0.3s;
+.switch-container:hover .moon.selected {
+  transform: rotate(60deg);
+  transition: 0.5s ease-in-out;
+  scale: 1.2;
 } */
 
-/* .switch-container:hover .switch {
+/* on-click */
+/* .switch-container:active .sun {
+  -webkit-transform: rotate(0) scale(1) translate(0, 0);
+  transform: rotate(0) scale(1) translate(0, 0);
+  transition: 0.5s ease-in-out;
 } */
 
 /* anim */
@@ -162,7 +170,8 @@ body.day {
  * animation slide-right
  */
 @-webkit-keyframes slide-right {
-  0%, 20% {
+  0%,
+  20% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
@@ -174,13 +183,15 @@ body.day {
     -webkit-transform: translateX(94px);
     transform: translateX(94px);
   }
-  70%, 100% {
+  70%,
+  100% {
     -webkit-transform: translateX(90px);
     transform: translateX(90px);
   }
 }
 @keyframes slide-right {
-  0%, 20% {
+  0%,
+  20% {
     -webkit-transform: translateX(0);
     transform: translateX(0);
   }
@@ -192,7 +203,8 @@ body.day {
     -webkit-transform: translateX(94px);
     transform: translateX(94px);
   }
-  70%, 100% {
+  70%,
+  100% {
     -webkit-transform: translateX(90px);
     transform: translateX(90px);
   }
