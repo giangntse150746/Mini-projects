@@ -1,0 +1,23 @@
+* {
+  font-family: "Comic Sans MS", "Comic Sans", "Roboto", sans-serif;
+}
+/* prettier-ignore */
+h1, h2, h3, h4, h5 {
+  font-family: 'Lilita One';
+  /* font-family: 'Oleo Script'; */
+}
+
+#fortune-wheel g.slice text {
+  stroke: #fff;
+  fill: white;
+  letter-spacing: 0.175em;
+  font-size: clamp(12px, 110%, 18px);
+}
+
+#fortune-wheel .centerspin {
+  fill: #bf0000;
+  pointer-events: none;
+}
+#awardresult {
+  text-align: center;
+}

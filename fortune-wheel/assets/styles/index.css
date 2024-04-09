@@ -1,0 +1,23 @@
+/* Presets */
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+
+/* General Info */
+body,
+#root {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
