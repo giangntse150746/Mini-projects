@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Broadcast Channel API</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <p style="font-size: 26px; color: red; display: none;" class="error">
+      Sorry, but your browser not supported Broadcast
+      Channel API. Check this example on Chrome 54+,
+      Firefox 38+ or Opera 41+
+    </p>
+
+    <p class="text-center">You can disable iframe and <a href="second.html" target="_blank">open</a>
+      second.html in new tab or window.</p>
+
+    <div class="flex gap-3">
+      <div class="w-full">
+        <div class="content">
+          <h2>This is the index.html</h2>
+          <p>Send a message to second.html</p>
+          <input class="message-text" placeholder="Your message">
+          <button class="send">Send now</button>
+          <div class="message-content"></div>
+        </div>
+      </div>
+      <iframe width="100%" src="second.html"></iframe>
+    </div>
+  </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
