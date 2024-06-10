@@ -1,0 +1,128 @@
+const mongoose = require('mongoose');
+const ServiceSchema = new mongoose.Schema({
+  CodeService: String,
+  userCreate: String,
+  userUpdate: String,
+  DateCreate: Date,
+  DateUpdate: Date,
+  nation: String,
+  IsItem: String,
+  category: String,
+  name: String,
+  PriceType: String,
+  location: String,
+  idCountry: String,
+  locationIds: String,
+  ServiceName: String,
+  supplier: String,
+  Idsupplier: String,
+  supplierTourCode: String,
+  supplierServiceID: String,
+  supplierID: String,
+  serviceID: String,
+  optionID: String,
+  optionNumber: Number,
+  types: String,
+  address: String,
+  tel: String,
+  email: String,
+  note: String,
+  url: String,
+  Airlines: String,
+  class: String,
+  flightFromCity: String,
+  flightToCity: String,
+  isnew: String,
+  
+  isEducation: Boolean,
+  companyId: String,
+  courseId: String,
+  classId: String,
+  departmentId: String,
+  language:Array,
+  Surcharges: [{
+    nameSurcharge: String,
+    beginDate: Date,
+    endDate: Date,
+    fromtime: Date,
+    totime: Date,
+    afterDay: Boolean,
+    foc: Boolean,
+    option: Boolean,
+    numberOfPer_PersonOnBooking: Number,
+    isType: String,
+    by: String,
+    value: Number,
+    accumulative: Boolean,
+    repeat: Number,
+    note: String
+  }],
+  Flight: String,
+  routeFlight: String,
+  TranferFromAirports: String,
+  TranferToAirports: String,
+  FromtimeFlight: Date,
+  TotimeFlight: Date,
+  luggageAllowance: String,
+  info_note: String,
+  Period: [{
+    isID: String,
+    PriceType: String,
+    beginDate: Date,
+    endDate: Date,
+    name: String,
+    min: Number,
+    max: Number,
+    price: Number,
+    conditionBookingsMin: Number,
+    conditionBookingsMax: Number,
+    currency: String,
+    isActive: { type: Boolean, default: false },
+    list: [{
+      name: String,
+      Idsupplier: String,
+      supplierName: String,
+      IdService: String,
+      serviceName: String,
+      min: Number,
+      max: Number,
+      price: Number
+    }],
+    
+    typeForValue: String, // 'Supplement' (deault), 'Deduct'
+    byForValue: String, // 'By %' (deault), 'By Amount'
+    isValueChange: Number,    
+    typeBased: String, // 'group' (deault), 'pax'
+    typeBasedGroup: String, // 'group' (deault), 'pax'
+    inputlist: [{
+      name: String,
+      supplierName: String,
+      Idsupplier: String,
+      supplierServiceName: String,
+      IdService: String,
+      serviceName: String,
+      min: Number,
+      max: Number,
+      inputprice: Number,
+      price: Number
+    }],    
+    contents: [
+      { languageCode : String,
+        languageName : String,
+        idItem:String,
+        Idlanguage: String,
+        items: [{
+          numberday:Number,
+          content: String,
+        }]
+      }
+    ],
+    userCreate: String,
+    userUpdate: String,
+    DateCreate: Date,
+    DateUpdate: Date,   
+  }]
+}, {
+  versionKey: false
+});
+module.exports = mongoose.model('Service', ServiceSchema);

@@ -1,0 +1,117 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Tour Chain helper API",
+      "description": "API helper for connect Database.",
+      "license": {
+        "name": "Link Document API Tour Chain",
+        "url": "http://da-tariff.com/api-docs"
+      }
+    },
+    "host": "http://da-tariff.com",
+    "basePath": "/api/",
+    "tags": [
+      {
+        "name": "Public",
+        "description": "API for client Connect to the system Tour Chain"
+      }      
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "AuthHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "paths": {
+      "/user/loginbyPassCode": {
+        "post": {
+          "tags": ["Public"],
+          "description": "Client Login to the system",
+        "parameters": [{
+          "name": "Client login",
+          "in": "body",
+          "description": "Client login details",
+          "schema": {
+            "type": "object",
+            "required": ["country", "password"],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "nation": {
+                "type": "string"
+              }
+            }
+          }
+        }],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Client User is loggedin",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+      }
+    },
+    "definitions": {
+      "User": {
+        "required": [
+          "email",
+          "fullname"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "fullname": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "$ref": "#/definitions/User"
+      },
+      "Auth": {
+        "type": "object",
+        "properties": [{
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/definitions/User"
+          }
+        }]
+      }
+  }
+}
