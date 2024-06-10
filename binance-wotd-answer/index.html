@@ -5,19 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Answer - Binance WOTD</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <article data-type="post" data-url="/en/crypto/binance-wodl-answer">
-    <h1 class="article__title">
-      Binance Crypto WODL Answer Today (Updated Daily)
-    </h1>
-    <div>
+    <div class="article__title">
+      <h1>
+        Binance Crypto WODL Answer (Updated Daily)
+      </h1>
+      <div class="checkbox">
+        <input id="checkAll" type="checkbox">
+        <span id="text">Show All</span>
+      </div>
+    </div>
+    <div class="accordion-container">
       <section class="accordion-box">
-        <div class="accordion-box-title">8 Letter Crypto WODL Answers</div>
+        <div class="accordion-box-title">8 Letters </div>
         <div class="accordion-box-description">
           <div data-testid="conversation-turn-7">
-            <div data-message-id="1de9eb8b-4eb1-4fb0-bf61-b7918f4d4858" data-message-author-role="assistant"><br>
+            <div data-message-id="1de9eb8b-4eb1-4fb0-bf61-b7918f4d4858" data-message-author-role="assistant">
               <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 637.266px;">
                 <tbody>
                   <tr style="height: 23.9844px;">
@@ -162,8 +169,7 @@
         </div>
       </section>
       <section class="accordion-box">
-        <div class="accordion-box-title">7 Letter Crypto WODL Answers</div>
-        <div class="accordion-box-description">&nbsp;</div>
+        <div class="accordion-box-title">7 Letters </div>
         <div class="accordion-box-description">
           <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 720px;">
             <tbody>
@@ -322,8 +328,8 @@
         </div>
       </section>
       <section class="accordion-box">
-        <div class="accordion-box-title">6 Letter Crypto WODL Answers</div>
-        <div class="accordion-box-description"><br>
+        <div class="accordion-box-title">6 Letters </div>
+        <div class="accordion-box-description">
           <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 626.524px;">
             <tbody>
               <tr style="height: 23.9844px;">
@@ -461,8 +467,8 @@
         </div>
       </section>
       <section class="accordion-box">
-        <div class="accordion-box-title">5 Letter Crypto WODL Answers</div>
-        <div class="accordion-box-description"><br>
+        <div class="accordion-box-title">5 Letters </div>
+        <div class="accordion-box-description">
           <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 455.704px;">
             <tbody>
               <tr style="height: 23.9844px;">
@@ -575,8 +581,8 @@
         </div>
       </section>
       <section class="accordion-box">
-        <div class="accordion-box-title">4 Letter Crypto WODL Answers</div>
-        <div class="accordion-box-description"><br>
+        <div class="accordion-box-title">4 Letters </div>
+        <div class="accordion-box-description">
           <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 359.766px;">
             <tbody>
               <tr style="height: 23.9844px;">
@@ -659,8 +665,8 @@
         </div>
       </section>
       <section class="accordion-box">
-        <div class="accordion-box-title">3 Letter Crypto WODL Answers</div>
-        <div class="accordion-box-description"><br>
+        <div class="accordion-box-title">3 Letters </div>
+        <div class="accordion-box-description">
           <table style="table-layout: fixed; width: 100%; max-width: 100%;">
             <tbody>
               <tr>
@@ -699,6 +705,30 @@
       </section>
     </div>
   </article>
+  <script type="text/javascript" data-cfasync="false">
+    document.querySelectorAll('.accordion-box-title').forEach(item => {
+      item.addEventListener('click', e => {
+        if (e.currentTarget.parentNode.classList.contains('expanded')) {
+          e.currentTarget.parentNode.classList.remove('expanded');
+        } else {
+          e.currentTarget.parentNode.classList.add('expanded');
+        }
+      })
+    });
+    document.getElementById('checkAll').addEventListener('click', e => {
+      if (document.getElementById('checkAll').checked == true) {
+        document.getElementById('text').innerText = "Hide All"
+        document.querySelectorAll('.accordion-box-title').forEach(item => {
+          item.parentNode.classList.add('expanded');
+        });
+      } else {
+        document.getElementById('text').innerText = "Show All"
+        document.querySelectorAll('.accordion-box-title').forEach(item => {
+          item.parentNode.classList.remove('expanded');
+        });
+      }
+    })
+  </script>
 </body>
 
 </html>

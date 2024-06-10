@@ -1,0 +1,96 @@
+html,
+body {
+  font-family: "Roboto", -apple-system, Arial, sans-serif;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+article {
+  overflow-x: hidden;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+article .article__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+article .article__title .checkbox {
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  display: flex;
+}
+article .article__title .checkbox input {
+  transition: 0.3s ease;
+}
+
+article .accordion-container {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+section.accordion-box {
+  transition: 0.3s ease-in-out;
+  background: url("./assets/images/ginx_bg_pattern_darkblue.jpg") no-repeat
+    center center;
+  background-size: cover;
+  padding: 1rem;
+  color: #fff;
+}
+
+section.accordion-box .accordion-box-title {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 10px 10px 48px;
+  position: relative;
+  line-height: 28px;
+  min-height: 48px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+section.accordion-box .accordion-box-title::before {
+  content: " ";
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  background: url("./assets/images/chevron_down_yellow.svg") no-repeat center
+    center;
+  background-size: 32px 32px;
+  text-decoration: none;
+  margin-right: 10px;
+  transition: 0.48s ease-in-out;
+  left: 0;
+  top: 0;
+}
+
+section.accordion-box .accordion-box-description {
+  font-size: 16px;
+  line-height: 36px;
+  overflow: hidden;
+  padding: 0 10px;
+  height: 0;
+}
+
+section.accordion-box.expanded .accordion-box-title::before {
+  transform: rotate(180deg);
+}
+
+section.accordion-box.expanded .accordion-box-description {
+  height: auto;
+}
+
+section.accordion-box.expanded .accordion-box-description p {
+  color: #fff;
+}
+
+section.accordion-box.expanded .accordion-box-description p a {
+  color: #fff70f;
+}
