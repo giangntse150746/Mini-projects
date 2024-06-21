@@ -15,15 +15,24 @@
   <article data-type="post" data-url="/en/crypto/binance-wodl-answer">
     <div class="article__title">
       <h1>
-        Binance Crypto WODL Answer (Updated Daily)
+        Binance Crypto WOTD Answers (Daily Update)
       </h1>
       <div class="checkbox">
         <input id="checkAll" type="checkbox">
         <span id="text">Show All</span>
       </div>
     </div>
-    <div class="accordion-container">
+    <div id="lstContainer" class="accordion-container">
       <section class="accordion-box">
+        <div class="accordion-box-title"></div>
+        <div class="accordion-box-description">
+          <table class="accordion-box-table">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- <section class="accordion-box">
         <div class="accordion-box-title">8 Letters </div>
         <div class="accordion-box-description">
           <div data-testid="conversation-turn-7">
@@ -167,7 +176,7 @@
                   </tr>
                   <tr>
                     <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMPLETE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
+                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESERVES</td>
                     <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
                   </tr>
                 </tbody>
@@ -333,8 +342,8 @@
               </tr>
               <tr style="height: 24.98px;">
                 <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REWARDS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SERVING</td>
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CUSTOMER</td>
               </tr>
             </tbody>
           </table>
@@ -577,7 +586,7 @@
               <tr style="height: 24.98px;">
                 <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LIKES</td>
                 <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STATE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOCUS</td>
               </tr>
             </tbody>
           </table>
@@ -653,6 +662,11 @@
                 <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SOLD</td>
                 <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GIFT</td>
               </tr>
+              <tr style="height: 24.98px;">
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SAFE</td>
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
+                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -695,57 +709,108 @@
             </tbody>
           </table>
         </div>
-      </section>
+      </section> -->
     </div>
   </article>
-  <script type="text/javascript" data-cfasync="false">
+  <script>
     function triggerAlert(status, content, duration = 2500) {
-      document.getElementById('alertContent').innerText = content
-      let alert = document.getElementById('alert')
-      alert.classList.add(status)
-      alert.classList.add('slide-in-blurred-right')
+      const alertContent = document.getElementById('alertContent');
+      alertContent.innerText = content;
+      const alert = document.getElementById('alert');
+      alert.classList.add(status, 'slide-in-blurred-right');
       setTimeout(() => {
-        alert.classList.add('slide-out-blurred-right')
-        alert.classList.remove('slide-in-blurred-right')
+        alert.classList.add('slide-out-blurred-right');
+        alert.classList.remove('slide-in-blurred-right');
         setTimeout(() => {
-          alert.classList.remove('slide-out-blurred-right')
+          alert.classList.remove('slide-out-blurred-right');
         }, 650);
-      }, duration)
+      }, duration);
     }
 
-    document.querySelectorAll('.accordion-box-title').forEach(item => {
-      item.addEventListener('click', e => {
-        if (e.currentTarget.parentNode.classList.contains('expanded')) {
-          e.currentTarget.parentNode.classList.remove('expanded');
-        } else {
-          e.currentTarget.parentNode.classList.add('expanded');
-        }
-      })
-    });
-    document.getElementById('checkAll').addEventListener('click', e => {
-      if (document.getElementById('checkAll').checked == true) {
-        document.getElementById('text').innerText = "Hide All"
-        document.querySelectorAll('.accordion-box-title').forEach(item => {
-          item.parentNode.classList.add('expanded');
+    async function loadWords() {
+      try {
+        const response = await fetch('assets/words.json');
+        if (!response.ok) throw new Error('Failed to fetch data');
+        const data = await response.json();
+        data.sort((a, b) => a.num - b.num);
+        const container = document.getElementById('lstContainer');
+        const boxTemplate = container.children[0].cloneNode(true);
+        container.innerHTML = '';
+        data.forEach((cat) => {
+          const box = boxTemplate.cloneNode(true);
+          const titleElement = box.querySelector('.accordion-box-title');
+          titleElement.textContent = cat.title;
+          const tbody = box.querySelector('.accordion-box-table tbody');
+          for (let i = 0; i < cat.words.length; i += 3) {
+            const row = document.createElement('tr');
+            for (let j = 0; j < 3; j++) {
+              const index = i + j;
+              if (index < cat.words.length) {
+                const cell = document.createElement('td');
+                cell.textContent = cat.words[index];
+                row.appendChild(cell);
+              }
+            }
+            tbody.appendChild(row);
+          }
+          container.appendChild(box);
         });
-      } else {
-        document.getElementById('text').innerText = "Show All"
-        document.querySelectorAll('.accordion-box-title').forEach(item => {
-          item.parentNode.classList.remove('expanded');
-        });
+        initActions();
+      } catch (error) {
+        console.error(error);
+        triggerAlert('fail', 'Failed to load content data!');
       }
-    })
-    document.querySelectorAll('td').forEach(td => {
-      td.addEventListener('dblclick', () => {
-        navigator.clipboard.writeText(td.textContent).then(() => {
-          // console.log(`${td.textContent} copied to clipboard`);
-          triggerAlert('success', `${td.textContent} copied to clipboard`)
-        }).catch(err => {
-          triggerAlert('fail', `${td.textContent} copied to clipboard`)
-          // console.log(`${td.textContent} copied to clipboard`);
+    }
+
+    function initActions() {
+      document.querySelectorAll('.accordion-box-title').forEach(item => {
+        item.addEventListener('click', e => {
+          e.currentTarget.parentNode.classList.toggle('expanded');
+          updateCheckAllCheckbox();
         });
       });
-    })
+
+      const checkAllCheckbox = document.getElementById('checkAll');
+      checkAllCheckbox.addEventListener('click', () => {
+        const isChecked = checkAllCheckbox.checked;
+        document.getElementById('text').innerText = isChecked ? 'Hide All' : 'Show All';
+        document.querySelectorAll('.accordion-box').forEach(box => {
+          box.classList.toggle('expanded', isChecked);
+        });
+      });
+
+      const textSpan = document.getElementById('text');
+      textSpan.addEventListener('click', () => {
+        checkAllCheckbox.checked = !checkAllCheckbox.checked;
+        const isChecked = checkAllCheckbox.checked;
+        textSpan.innerText = isChecked ? 'Hide All' : 'Show All';
+        document.querySelectorAll('.accordion-box').forEach(box => {
+          box.classList.toggle('expanded', isChecked);
+        });
+      });
+
+      document.querySelectorAll('td').forEach(td => {
+        td.addEventListener('dblclick', () => {
+          const content = td.textContent;
+          navigator.clipboard.writeText(content)
+            .then(() => triggerAlert('success', `${content} copied to clipboard`))
+            .catch(() => triggerAlert('fail', `Failed to copy ${content} to clipboard`));
+        });
+      });
+
+      // Check if all boxes are expanded initially
+      updateCheckAllCheckbox();
+    }
+
+    function updateCheckAllCheckbox() {
+      const allBoxes = document.querySelectorAll('.accordion-box');
+      const allExpanded = Array.from(allBoxes).every(box => box.classList.contains('expanded'));
+      const checkAllCheckbox = document.getElementById('checkAll');
+      checkAllCheckbox.checked = allExpanded;
+      document.getElementById('text').innerText = allExpanded ? 'Hide All' : 'Show All';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadWords);
   </script>
 </body>
 
