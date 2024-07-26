@@ -5,7 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Answer - Binance WOTD</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/styles/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="assets/scripts/rough-nation.esm.js"></script>
+  <!-- Include Firebase SDK -->
+  <script type="module" src="assets/scripts/firebase.mjs"></script>
 </head>
 
 <body>
@@ -14,804 +24,93 @@
   </div>
   <article data-type="post" data-url="/en/crypto/binance-wodl-answer">
     <div class="article__title">
-      <h1>
-        Binance Crypto WOTD Answers (Daily Update)
-      </h1>
-      <div class="checkbox">
-        <input id="checkAll" type="checkbox">
-        <span id="text">Show All</span>
+      <div class="text-[24px] font-semibold my-3 hidden xl:flex">
+        <span class="bg-[#ffd419] p-3 rounded-lg">Binance</span>
+        <span id="title" class="text-green-700 text-[27px]">WOTD</span> Answers
+      </div>
+      <div class="w-20 h-20 mx-3">
+        <img width="100%" src="assets/images/logo.png">
+      </div>
+      <div class="filter-container flex gap-3 my-8 text-[14px]">
+        <div class="relative w-full h-10 min-w-[120px]">
+          <select id="themeSelect" placeholder="Select theme" class="peer h-full w-full rounded-[7px] border border-gray-200 
+            border-t-transparent bg-transparent px-3 py-2 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all 
+            placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200 empty:!bg-gray-900 
+            focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0">
+          </select>
+          <label
+            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
+            Select theme
+          </label>
+        </div>
+        <div class="relative w-full h-10 min-w-[120px]">
+          <select id="categorySelect" placeholder="Select category" class="peer h-full w-full rounded-[7px] border border-gray-200 
+            border-t-transparent bg-transparent px-3 py-2 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all 
+            placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200 empty:!bg-gray-900 
+            focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0">
+            <option value="0" selected>All</option>
+          </select>
+          <label
+            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
+            Select category
+          </label>
+        </div>
+
+        <div class="relative h-10 w-full min-w-[120px] capitalize">
+          <input id="includes" name="includes" placeholder="includes"
+            class="peer h-full w-full rounded-[7px] border border-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+          <label
+            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
+            includes
+          </label>
+        </div>
+        <div class="relative h-10 w-full min-w-[120px] capitalize">
+          <input id="excludes" name="excludes" placeholder="excludes"
+            class="peer h-full w-full rounded-[7px] border border-gray-200 border-t-transparent bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200 focus:border-2 focus:border-gray-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+          <label
+            class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-500 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-gray-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-gray-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-gray-500">
+            excludes
+          </label>
+        </div>
       </div>
     </div>
+
+    <div id="showAll" class="checkbox text-lg text-blue-900">
+      <!-- <input id="checkAll" type="checkbox"> -->
+      <div class="inline-flex items-center gap-0 checkgroup mb-3">
+        <label class="relative flex items-center p-3 rounded-full cursor-pointer" htmlFor="green">
+          <input type="checkbox" id="showAllCheckbox" class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none 
+          rounded-md border border-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block 
+          before:h-10 before:w-10 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-gray-500 
+          before:opacity-0 before:transition-opacity checked:border-amber-500 checked:bg-amber-500 checked:before:bg-amber-500 
+          hover:before:opacity-10" />
+          <span class="absolute text-white transition-opacity opacity-0 pointer-events-none 
+            top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 
+              12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </span>
+        </label>
+        <span id="showAllText" class="text-gray-800 text-md mt-1 rounded border-gray-400 border-2 py-1 px-2">Show All</span>
+      </div>
+    </div>
+
     <div id="lstContainer" class="accordion-container">
       <section class="accordion-box">
         <div class="accordion-box-title"></div>
         <div class="accordion-box-description">
           <table class="accordion-box-table">
-            <tbody>
-            </tbody>
+            <tbody> </tbody>
           </table>
         </div>
       </section>
-      <!-- <section class="accordion-box">
-        <div class="accordion-box-title">8 Letters </div>
-        <div class="accordion-box-description">
-          <div data-testid="conversation-turn-7">
-            <div data-message-id="1de9eb8b-4eb1-4fb0-bf61-b7918f4d4858" data-message-author-role="assistant">
-              <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 637.266px;">
-                <tbody>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ADVISORY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUNGIBLE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESEARCH</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ADOPTION</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GAMEPLAY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SECURITY</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ALLOCATE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GENERATE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SHOPPING</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ANALYSIS</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GREATEST</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SOLUTION</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ANIMATED</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">IDENTITY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STARTUPS</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">APPROVAL</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INDUSTRY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STRENGTH</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AUTOMATE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INSIGHTS</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STRATEGY</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">APPROACH</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INTERACT</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">THOROUGH</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BRIDGING</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INVESTOR</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRAINING</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CASHBACK</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LITERACY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRANSFER</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHANNELS</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOMENTUM</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRENDING</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMPOUND</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MONETARY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">UNBIASED</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONTRACT</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MERCHANT</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VOLATILE</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CRITERIA</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOTIVATE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACCURATE</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CURRENCY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NETWORKS</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PIPELINE</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEDICATE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OPTIMISM</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STANDARD</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DISCOVER</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OPTIMIZE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ORDINALS</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DOMESTIC</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PERSONAL</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXPECTED</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EVOLVING</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">POSITIVE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">POSITION</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXCHANGE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PLATFORM</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OFFERING</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXTERNAL</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PRODUCTS</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SHARDING</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FEEDBACK</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROSPECT</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOLLOWER</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FLEXIBLE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROTOCOL</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHATROOM</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOOTBALL</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PURCHASE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CRITERIA</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUNCTION</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESOURCE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">QUANTITY</td>
-                  </tr>
-                  <tr style="height: 24.98px;">
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DATABASE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AUTONOMY</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HARDWARE</td>
-                  </tr>
-                  <tr>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DOGECOIN</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHAMPION</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HARDCORE</td>
-                  </tr>
-                  <tr>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMPLETE</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESERVES</td>
-                    <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="accordion-box">
-        <div class="accordion-box-title">7 Letters </div>
-        <div class="accordion-box-description">
-          <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 720px;">
-            <tbody>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACADEMY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXTREME</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROJECT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACCOUNTS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FALLOUT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROMISE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACTIONS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FEATURE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROTECT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ADVANCE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FINANCE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REQUEST</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AIRDROP</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FREEDOM</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESERVE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ANALYZE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUNDING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESHAPE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ARTWORK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUTURES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ROYALTY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AUCTION</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GALLERY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SATOSHI</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BALANCE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HALVING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SERVICE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BITCOIN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HELPFUL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SQUEEZE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BOOKING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">IMPROVE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STAKING</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BORDERS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INSTANT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STORIES</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CAPITAL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">JOURNEY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SUPPORT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CENTRAL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">JUSTICE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRADING</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHANNEL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LENDING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRAFFIC</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHATBOT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LIBRARY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">UTILITY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMBINE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LISTINGS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VENTURE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMMENT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LOYALTY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VOUCHER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONCEPT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MAINNET</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LOGICAL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONNECT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MINTING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MACHINE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONTENT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NETWORK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">QUALIFY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONTROL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OBSERVE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEVELOP</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CONVERT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OFFLINE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEPLOY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CUSTODY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OPERATE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STORAGE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEPOSIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OUTLOOK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MAINNET</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DIGITAL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PARALLEL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HISTORY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DISPLAY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PARENT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LIMITED</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DYNAMIC</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PASSION</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CREATOR</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EDUCATE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PRODUCT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CULTURE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ENFORCE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROFILE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PURPOSE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REWARDS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SERVING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CUSTOMER</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="accordion-box">
-        <div class="accordion-box-title">6 Letters </div>
-        <div class="accordion-box-description">
-          <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 626.524.98px;">
-            <tbody>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACCESS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INCOME</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SECTOR</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ACTION</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ISSUED</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SERIES</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ALERT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INVEST</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SIGNAL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ARTIST</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LAUNCH</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SIMPLE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AVATAR</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MARGIN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STATUS</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CAREER</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MARKET</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SUPPLY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHECKS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOBILE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SYSTEM</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHOICE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOVING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TAXING</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CODING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NATIVE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TENDER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COHORT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ONLINE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TIMING</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMMIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">POLICY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRAVEL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COMMON</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">POOLED</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">USEFUL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CREDIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROMPT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VERIFY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CREATE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROFIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VISION</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CRYPTO</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PUBLIC</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VOTING</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEMAND</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RARITY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">WALLET</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ENABLE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REALITY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DOLLAR</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ENGAGE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REPORT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TETHER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FORCES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RESALE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BACKED</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FRAMES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RETAIL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STRONG</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GAMIFY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REVIEW</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PAPER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GAMEFI</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REWARD</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SCRIPT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GAMING</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SCARCE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HEIGHT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GROWTH</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SECURE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STUDIO</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRADER</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RETURN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NATIVE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ADHERE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RIGHTS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXPERT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LEGACY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">UNLOCK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="accordion-box">
-        <div class="accordion-box-title">5 Letters </div>
-        <div class="accordion-box-description">
-          <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 455.704px;">
-            <tbody>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ANGEL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MATCH</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRAIN</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ASSET</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MERGE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TREND</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AUDIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MODEL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRUST</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BANDS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NODES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VALUE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BANKS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ORDER</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STOCK</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BLOCK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PERKS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CYCLE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BUILD</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">POWER</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">APRIL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CAUSE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PRICE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RALLY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CHAIN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PROOF</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NEEDS</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CROWD</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RANGE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PRIZE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EARLY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RATIO</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REFER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUNDS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REALM</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MACRO</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GROUP</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RULES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TRADE</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HEDGE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SHARE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TOKEN</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">INDEX</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SMART</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LOCAL</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LAYER</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SPEED</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">START</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LEARN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SQUARE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LIVES</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LIKES</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">STATE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOCUS</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="accordion-box">
-        <div class="accordion-box-title">4 Letters </div>
-        <div class="accordion-box-description">
-          <table style="table-layout: fixed; width: 100%; max-width: 100%; height: 359.766px;">
-            <tbody>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FIAT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SPOT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COPY</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BULL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LOCK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COIN</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CASE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">LUNC</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MODE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CLUB</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOVE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOUR</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CODE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">OPEN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">COST</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEFI</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PLAN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">MOCK</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DYOR</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RARE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FOMO</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EARN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">REAL</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HOLD</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EASY</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">RISK</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">USER</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">EXIT</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SAFU</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HELP</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FANS</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SHOP</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">VOTE</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FAST</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SIGN</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TEAM</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUND</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SOLD</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">GIFT</td>
-              </tr>
-              <tr style="height: 24.98px;">
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">SAFE</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="accordion-box">
-        <div class="accordion-box-title">3 Letters </div>
-        <div class="accordion-box-description">
-          <table style="table-layout: fixed; width: 100%; max-width: 100%;">
-            <tbody>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">AID</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DAO</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PAY</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">API</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">DEX</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PNL</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BID</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">FUD</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">TAX</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">BNB</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">HUB</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">PEG</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">CAP</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">ICO</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">NFT</td>
-              </tr>
-              <tr>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;">KYC</td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-                <td style="width: calc(100% / 3); height: 24.98px; text-align: center;"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section> -->
     </div>
   </article>
-  <script>
-    function triggerAlert(status, content, duration = 2500) {
-      const alertContent = document.getElementById('alertContent');
-      alertContent.innerText = content;
-      const alert = document.getElementById('alert');
-      alert.classList.add(status, 'slide-in-blurred-right');
-      setTimeout(() => {
-        alert.classList.add('slide-out-blurred-right');
-        alert.classList.remove('slide-in-blurred-right');
-        setTimeout(() => {
-          alert.classList.remove('slide-out-blurred-right');
-        }, 650);
-      }, duration);
-    }
-
-    async function loadWords() {
-      try {
-        const response = await fetch('assets/words.json');
-        if (!response.ok) throw new Error('Failed to fetch data');
-        const data = await response.json();
-        data.sort((a, b) => a.num - b.num);
-        const container = document.getElementById('lstContainer');
-        const boxTemplate = container.children[0].cloneNode(true);
-        container.innerHTML = '';
-        data.forEach((cat) => {
-          const box = boxTemplate.cloneNode(true);
-          const titleElement = box.querySelector('.accordion-box-title');
-          titleElement.textContent = cat.title;
-          const tbody = box.querySelector('.accordion-box-table tbody');
-          for (let i = 0; i < cat.words.length; i += 3) {
-            const row = document.createElement('tr');
-            for (let j = 0; j < 3; j++) {
-              const index = i + j;
-              if (index < cat.words.length) {
-                const cell = document.createElement('td');
-                cell.textContent = cat.words[index];
-                row.appendChild(cell);
-              }
-            }
-            tbody.appendChild(row);
-          }
-          container.appendChild(box);
-        });
-        initActions();
-      } catch (error) {
-        console.error(error);
-        triggerAlert('fail', 'Failed to load content data!');
-      }
-    }
-
-    function initActions() {
-      document.querySelectorAll('.accordion-box-title').forEach(item => {
-        item.addEventListener('click', e => {
-          e.currentTarget.parentNode.classList.toggle('expanded');
-          updateCheckAllCheckbox();
-        });
-      });
-
-      const checkAllCheckbox = document.getElementById('checkAll');
-      checkAllCheckbox.addEventListener('click', () => {
-        const isChecked = checkAllCheckbox.checked;
-        document.getElementById('text').innerText = isChecked ? 'Hide All' : 'Show All';
-        document.querySelectorAll('.accordion-box').forEach(box => {
-          box.classList.toggle('expanded', isChecked);
-        });
-      });
-
-      const textSpan = document.getElementById('text');
-      textSpan.addEventListener('click', () => {
-        checkAllCheckbox.checked = !checkAllCheckbox.checked;
-        const isChecked = checkAllCheckbox.checked;
-        textSpan.innerText = isChecked ? 'Hide All' : 'Show All';
-        document.querySelectorAll('.accordion-box').forEach(box => {
-          box.classList.toggle('expanded', isChecked);
-        });
-      });
-
-      document.querySelectorAll('td').forEach(td => {
-        td.addEventListener('dblclick', () => {
-          const content = td.textContent;
-          navigator.clipboard.writeText(content)
-            .then(() => triggerAlert('success', `${content} copied to clipboard`))
-            .catch(() => triggerAlert('fail', `Failed to copy ${content} to clipboard`));
-        });
-      });
-
-      // Check if all boxes are expanded initially
-      updateCheckAllCheckbox();
-    }
-
-    function updateCheckAllCheckbox() {
-      const allBoxes = document.querySelectorAll('.accordion-box');
-      const allExpanded = Array.from(allBoxes).every(box => box.classList.contains('expanded'));
-      const checkAllCheckbox = document.getElementById('checkAll');
-      checkAllCheckbox.checked = allExpanded;
-      document.getElementById('text').innerText = allExpanded ? 'Hide All' : 'Show All';
-    }
-
-    document.addEventListener('DOMContentLoaded', loadWords);
-  </script>
 </body>
+
+<script type="module" src="assets/scripts/utils.mjs"></script>
+<script type="module" src="assets/scripts/main.mjs"></script>
 
 </html>

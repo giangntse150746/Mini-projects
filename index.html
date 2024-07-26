@@ -1,0 +1,85 @@
+<!-- DUMMY OR TESTING PAGE -->
+<div style="box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;padding: 0 3rem;">
+  <img src="https://ac.tourchain.net/fm/Files//VIKING-LOGO.png" height="90">
+  <div style="font-family: 'Roboto';">
+    <p style="margin: 0;">
+      <b style="color: red;">a:</b>
+      79 Tran Hung Dao St., District 1, Ho Chi Minh City, Vietnam
+    </p>
+    <p style="margin: 0;">
+      <b style="color: red;">t:</b>
+      (+84 8) 39 144 145 , 39 144 155 f: (+84 8) 39 144 119
+    </p>
+    <p style="margin: 0;">
+      <b style="color: red;">e:</b>
+      inbound@vikingvietnam.com w: www.vikingvietnam.com
+    </p>
+    <p style="margin: 0;">
+      <b style="color: red;">hotlines:</b>
+      (+84) 913 91 91 30 (english)
+    </p>
+  </div>
+</div>
+
+<table border="1" style="width: 100%; border-spacing: 0;font-family: 'Palatino Linotype';">
+  <tbody>
+    <tr>
+      <td rowspan="6" style="width: 45%;">
+        <div style="text-transform: uppercase; text-align: center;">
+          <p style="font-size: 20px;">
+            <b>[#CONFIRMATION CODE#]:</b>
+            <span style="color: red">{{bookingCode}}</span>
+          </p>
+        </div>
+        <ol style="padding-left: 1.15rem;">
+          <li>
+            [#Confirmed by Tour Operator#]:
+            <span style="color: red;">{{confirmedUser}}</span>
+          </li>
+          <li>
+            [#Emergency Number#]:
+            [#see our hotline numbers above#]
+          </li>
+        </ol>
+        <div>
+          {{flightList}}
+        </div>
+      </td>
+      <td>[#Welcome board#]</td>
+      <td style="text-align: center; text-transform: uppercase;">{{welcomeBoard}}</td>
+    </tr>
+    <tr>
+      <td>[#noOfPax#]</td>
+      <td style="text-transform: uppercase;">{{noOfPax}} [#pax#] {{strTourLeader}} </td>
+    </tr>
+    <tr>
+      <td>[#noOfRoom#]</td>
+      <td style="">
+        {{roomingListWithSummary}}
+      </td>
+    </tr>
+    <tr>
+      <td>[#tour-guide#]</td>
+      <td style="text-transform: uppercase; color: red;"><b>{{guideList}}</b></td>
+    </tr>
+    <tr>
+      <td>[#transfer#]</td>
+      <td style="text-transform: uppercase;">{{strVehicle}}</td>
+    </tr>
+    <tr>
+      <td style="text-transform: uppercase; color: red;"><b>[#remarks#]</b></td>
+      <td style="text-transform: uppercase;">{{remark}}</td>
+    </tr>
+    <tr>
+      <td colspan="3" style="text-align: center;">
+        <h3 style="text-transform: uppercase;">[#itinerary#]</h3>
+        <p>([#Order of itinerary is subject to change but assures enough all the sightseeing spots#])</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        {{service_tourDescription}}
+      </td>
+    </tr>
+  </tbody>
+</table>
