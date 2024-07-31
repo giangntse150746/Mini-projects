@@ -36,16 +36,31 @@ var _filter = {
 async function loadFromFile() {
   const response = await fetch("assets/words.json");
   if (!response.ok) throw new Error("Failed to fetch data");
-  const data = await response.json();
-  data.sort((a, b) => a.num - b.num);
-  return data;
+
+  const jsonData = await response.json();
+
+  jsonData.sort((a, b) => new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime());
+  jsonData.forEach((theme) =>
+    theme.data.forEach((d) => {
+      if (theme.theme === "Default") {
+        d.words = [
+          ...new Set(
+            jsonData.reduce((p, c) => {
+              return p.concat(c.data?.find((e) => e.num == d.num)?.words || []);
+            }, [])
+          ),
+        ];
+      }
+      d.words.sort();
+    })
+  );
+  return jsonData;
 }
 
 async function fetchData() {
   _data = await firebase.loadData(collectionName, triggerAlert);
-  if (!_data.length) {
-    _data = await loadFromFile();
-  }
+  if (!_data.length) _data = await loadFromFile();
+
   return _data;
 }
 
@@ -91,7 +106,6 @@ function filterWords(data) {
             ic.pos >= 0 ? w.charAt(ic.pos) != ic.letter : !w.includes(ic.letter)
           );
         });
-        console.log(tmp.length, c.words.length);
         if (!!tmp?.length) p.push({ ...c, words: tmp });
 
         return p;
@@ -114,7 +128,6 @@ function filterWords(data) {
             ec.pos >= 0 ? w.charAt(ec.pos) == ec.letter : w.includes(ec.letter)
           );
         });
-        console.log(tmp.length, c.words.length);
         if (!!tmp?.length) p.push({ ...c, words: tmp });
 
         return p;
@@ -226,9 +239,8 @@ function initActions() {
     if (e.ctrlKey && e.shiftKey && e.key === "F") {
       e.preventDefault();
       // main action
-      await firebase.batchAdd(await loadFromFile(), collectionName);
+      await firebase.batchAdd(await loadFromFile(), collectionName, undefined, triggerAlert);
       await loadWords();
-      triggerAlert("success", "Data is uploaded successfully!");
     }
 
     // not done //

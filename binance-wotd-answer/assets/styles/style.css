@@ -95,7 +95,7 @@ section.accordion-box.expand .accordion-box-title::before {
   transform: rotate(180deg);
 }
 section.accordion-box.expand .accordion-box-description {
-  max-height: 100vh;
+  max-height: 500vh;
 }
 section.accordion-box.expand .accordion-box-description p {
   color: #fff;

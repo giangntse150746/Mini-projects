@@ -2,9 +2,10 @@
   {
     "id": "00000000-0000-0000-0000-000000000000",
     "theme": "Default",
-    "launchDate": "2024-01-01T00:00:00.000Z",
-    "lastUpdateAt": "2024-01-01T00:00:00.000Z",
-    "createAt": "2024-01-01T00:00:00.000Z",
+    "launchDate": "2050-01-01T00:00:00.000Z",
+    "lastUpdateAt": "2050-01-01T00:00:00.000Z",
+    "createAt": "2050-01-01T00:00:00.000Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -21,11 +22,34 @@
     ]
   },
   {
+    "id": "d2e522f2-47f9-492c-b404-4ea65f0d0e19",
+    "theme": "Protecting Users",
+    "launchDate": "2024-07-29T04:35:25.151Z",
+    "lastUpdateAt": "2024-07-29T04:35:25.151Z",
+    "createAt": "2024-07-29T04:35:25.151Z",
+    "isPublic": true,
+    "data": [
+      {"title": "8 Letters", "num": 8, 
+      "words": ["CRITICAL", "SECURITY", "VIGILANT"]},
+      {"title": "7 Letters", "num": 7, 
+      "words": ["WARNING", "PROTECT", "CONTROL"]},
+      {"title": "6 Letters", "num": 6, 
+      "words": ["ATTACK", "DETECT", "ALERTS", "INFORM", "VERIFY", "SYSTEM"]},
+      {"title": "5 Letters", "num": 5, 
+      "words": ["AWARE"]},
+      {"title": "4 Letters", "num": 4, 
+      "words": ["RISK"]},
+      {"title": "3 Letters", "num": 3, 
+      "words": ["BUG"]}
+    ]
+  },
+  {
     "id": "9e6ebb9e-e89d-43d2-9431-575a9206a178",
     "theme": "Crypto Trends",
     "launchDate": "2024-07-22T04:35:25.151Z",
     "lastUpdateAt": "2024-07-22T04:35:25.151Z",
     "createAt": "2024-07-22T04:35:25.151Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": ["DOWNWARD", "OPTIMISM", "RESEARCH", "UPCOMING"]},
@@ -47,6 +71,7 @@
     "launchDate": "2024-07-15T04:35:25.151Z",
     "lastUpdateAt": "2024-07-16T04:35:25.151Z",
     "createAt": "2024-07-16T04:35:25.151Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": ["ADOPTION"]},
@@ -65,9 +90,10 @@
   {
     "id": "e0790f90-39bc-4571-b787-a51a0a438181",
     "theme": "Binance 7YA",
-    "launchDate": "",
+    "launchDate": "2024-07-09T04:35:25.151Z",
     "lastUpdateAt": "2024-07-09T04:35:25.151Z",
     "createAt": "2024-07-09T04:35:25.151Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": ["GIVEAWAY"]},
@@ -86,9 +112,10 @@
   {
     "id": "e0790f90-39bc-4571-b787-ca4c41f02335",
     "theme": "Binance Build",
-    "launchDate": "",
+    "launchDate": "2024-07-02T04:35:25.151Z",
     "lastUpdateAt": "2024-07-02T04:35:25.151Z",
     "createAt": "2024-07-02T04:35:25.151Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": ["STRONGER", "RELIABLE", "PLATFORM", "FEEDBACK"]},
@@ -110,6 +137,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:35:42.140Z",
     "createAt": "2024-07-02T04:35:42.140Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -131,6 +159,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:35:59.021Z",
     "createAt": "2024-07-02T04:35:59.021Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -152,6 +181,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:36:36.551Z",
     "createAt": "2024-07-02T04:36:36.551Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -173,6 +203,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:35:59.021Z",
     "createAt": "2024-07-02T04:35:59.021Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -194,6 +225,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:35:59.021Z",
     "createAt": "2024-07-02T04:35:59.021Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -215,6 +247,7 @@
     "launchDate": "",
     "lastUpdateAt": "2024-07-02T04:35:59.021Z",
     "createAt": "2024-07-02T04:35:59.021Z",
+    "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": []},
@@ -233,9 +266,10 @@
   {
     "id": "00000000-0000-0000-0000-000000000old",
     "theme": "Old Items",
-    "launchDate": "2024-01-01T00:00:00.000Z",
-    "lastUpdateAt": "2024-01-01T00:00:00.000Z",
-    "createAt": "2024-01-01T00:00:00.000Z",
+    "launchDate": "2020-01-01T00:00:00.000Z",
+    "lastUpdateAt": "2020-01-01T00:00:00.000Z",
+    "createAt": "2020-01-01T00:00:00.000Z",
+    "isPublic": false,
     "data": [
       {"title": "8 Letters", "num": 8, 
       "words": ["ACCOUNTS", "ACCURATE", "ADOPTION", "ADVISORY", "ALLOCATE", "ANALYSIS", "ANIMATED", "APPROACH", "APPROVAL", "AUTOMATE", "AUTONOMY", "BRIDGING", "CASHBACK", "CHAMPION", "CHANNELS", "CHATROOM", "COMPLETE", "COMPOUND", "CONTRACT", "CRITERIA", "CURRENCY", "DATABASE", "DEDICATE", "DISCOVER", "DOGECOIN", "DOMESTIC", "EVOLVING", "EXCHANGE", "EXPECTED", "EXTERNAL", "FEEDBACK", "FLEXIBLE", "FOLLOWER", "FOOTBALL", "FUNCTION", "FUNGIBLE", "GAMEPLAY", "GENERATE", "GREATEST", "HARDCORE", "HARDWARE", "IDENTITY", "INDUSTRY", "INSIGHTS", "INTERACT", "INVESTOR", "LISTINGS", "LITERACY", "MERCHANT", "MOMENTUM", "MONETARY", "MOTIVATE", "NETWORKS", "OFFERING", "OPTIMISM", "OPTIMIZE", "ORDINALS", "PARALLEL", "PERSONAL", "PIPELINE", "PLATFORM", "POSITION", "POSITIVE", "PRODUCTS", "PROSPECT", "PROTOCOL", "PURCHASE", "QUANTITY", "RESEARCH", "RESOURCE", "SECURITY", "SHARDING", "SHOPPING", "SOLUTION", "STANDARD", "STARTUPS", "STRATEGY", "STRENGTH", "THOROUGH", "TRAINING", "TRANSFER", "TRENDING", "UNBIASED", "VOLATILE"]},

@@ -58,9 +58,10 @@ export const firebase = {
     });
     try {
       await batch.commit();
-      callback("success", "Batch write succeeded.");
+      callback("success", "Data is uploaded successfully!");
     } catch (error) {
-      callback("error", "Error performing batch write: ");
+      console.log(`Error performing batch write: ${error}`);
+      callback("error", "Data is failed to upload!");
     }
   },
 };
