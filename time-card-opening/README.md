@@ -1,0 +1,1 @@
+# This is the Opening Animating Section (OAS) for news/highlights by cards view in a Landing page
