@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Latest Posts</title>
+</head>
+
+<body>
+  <div id="instagram-posts"></div>
+
+  <script>
+    async function fetchInstagramPosts() {
+      const accessToken = '7713c3a87583a50ba783478ba3e3dd76'; // Replace with your access token
+      const userId = 'itsnotme_world'; // Replace with your Instagram user ID
+
+      const response = await fetch(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${accessToken}`);
+      const data = await response.json();
+
+      const postsContainer = document.getElementById('instagram-posts');
+      data.data.forEach(post => {
+        const postElement = document.createElement('div');
+        if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
+          postElement.innerHTML = `<a href="${post.permalink}" target="_blank"><img src="${post.media_url}" alt="${post.caption}" style="width:100%;"></a>`;
+        } else if (post.media_type === 'VIDEO') {
+          postElement.innerHTML = `<a href="${post.permalink}" target="_blank"><video controls style="width:100%;"><source src="${post.media_url}" type="video/mp4"></video></a>`;
+        }
+        postsContainer.appendChild(postElement);
+      });
+    }
+
+    fetchInstagramPosts();
+  </script>
+</body>
+
+</html>
