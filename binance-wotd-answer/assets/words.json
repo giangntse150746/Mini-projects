@@ -30,17 +30,17 @@
     "isPublic": true,
     "data": [
       {"title": "8 Letters", "num": 8, 
-      "words": []},
+      "words": ["TRANSFER", "SOLUTION", "REGULATE"]},
       {"title": "7 Letters", "num": 7, 
-      "words": ["ECONOMY", "PAYMENT"]},
+      "words": ["BANKING", "DIGITAL", "ECONOMY", "NATIONS", "PAYMENT"]},
       {"title": "6 Letters", "num": 6, 
-      "words": ["GLOBAL", "MARKET"]},
+      "words": ["BORDER", "GLOBAL", "GOVERN", "MARKET"]},
       {"title": "5 Letters", "num": 5, 
-      "words": []},
+      "words": ["TRUST"]},
       {"title": "4 Letters", "num": 4, 
-      "words": []},
+      "words": ["FUND", "FEES"]},
       {"title": "3 Letters", "num": 3, 
-      "words": []}
+      "words": ["IMF"]}
     ]
   },
   {
