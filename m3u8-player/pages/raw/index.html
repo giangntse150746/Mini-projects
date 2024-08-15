@@ -1,0 +1,14 @@
+<link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
+<!-- data-setup='{}' -->
+<video id="my-video" class="video-js vjs-default-skin" muted controls preload="auto" width="640" height="264">
+  <source src="../../assets/videos/test/video.m3u8" type="application/x-mpegURL">
+</video>
+<button onclick="navigateTo('/about')">Go to About</button>
+
+<script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var player = videojs('my-video');
+    player.play();
+  });
+</script>
