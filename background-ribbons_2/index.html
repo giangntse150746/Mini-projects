@@ -1,37 +1,12 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="controls">Helo</div>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        canvas {
-            display: block;
-        }
-        
-        #controls {
-            margin: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: white;
-        }
-    </style>
-    <script>
+    <!-- <script>
         let points = [];
         let tickSpeed = 10;
         let base = 180;
@@ -49,7 +24,7 @@
             this.color = color(this.hue, 100, 100, .01);
         }
 
-        Point.prototype.update = function() {
+        Point.prototype.update = function () {
             this.x += this.dx;
             this.y += this.dy;
             if (this.x < 0 || this.x >= width) this.dx *= -1;
@@ -101,11 +76,10 @@
             background(0);
             init();
         }
-    </script>
-    <!--
+    </script> -->
+
     <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
-    -->
+
 </body>
 
 </html>
