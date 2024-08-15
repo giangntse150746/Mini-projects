@@ -1,14 +1,22 @@
-html {
-  overflow-y: scroll;
-}
 html,
 body {
   font-family: "Roboto", -apple-system, Arial, sans-serif;
-  box-sizing: border-box;
   background-color: #fff;
+  box-sizing: border-box;
   overflow-x: hidden;
+  padding: 0;
+  margin: 0;
 }
-
+html {
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+body {
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
 *,
 *:before,
 *:after {

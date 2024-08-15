@@ -45,42 +45,34 @@ export function initFilterActions(callback) {
   selectCategory.addEventListener("change", () => callback(selectCategory, "category"));
 }
 
-export const lsThemeNames = [
-  "Binance 7YA",
-  "Binance Build",
-  "Futures Chat Room",
-  "Binance Users",
-  "Binance World Championship",
-  "Life in Binance",
-  "Meme Coins",
-  "DApps",
-  "Airdrops",
-  "Futures Copy Trading",
-  "ETH Upgrade",
-  "Binance Launchpad",
-  "Web3 Gaming",
-  "Halving Horizons",
-  "Bitcoin Halving",
-  "Bitcoin NFTs",
-  "Bitcoin Payments",
-  "Bitcoin Evolution",
-  "Binance VIP",
-  "Web3 Education",
-  "Binance Ledger",
-  "Risk Detection",
-  "Machine Learning",
-  "Stablecoins",
-  "Institutional Adoption",
-  "Bitcoin ETFs",
-  "Binance Crypto is Better",
-  "SocialFi",
-  "Binance WODL Points Received || SAFU",
-  "Trading Indicators",
-  "Digital Art",
-  "Digital Art",
-  "Recurring Trading",
-  "Recurring Trading",
-  "Recurring Trading",
-  "Recurring Trading",
-  "Binance Pool",
-];
+export function initModalActions() {
+  const modal = document.getElementById("createThemeModal");
+  const modalBackground = document.getElementById("createThemeModalBg");
+  const modalContent = document.getElementById("createThemeModalMain");
+  const openModalBtn = document.getElementById("openModal");
+  const closeModalBtn = document.getElementById("closeModal");
+
+  const handleOpenModal = () => {
+    modal.classList.remove("hidden");
+    setTimeout(() => {
+      modalBackground.classList.add("bg-opacity-50");
+      modalContent.classList.remove("scale-90", "opacity-0");
+      modalContent.classList.add("scale-100", "opacity-100");
+    }, 10);
+  };
+
+  const handleCloseModal = () => {
+    modalContent.classList.add("scale-90", "opacity-0");
+    modalContent.classList.remove("scale-100", "opacity-100");
+    modalBackground.classList.remove("bg-opacity-50");
+    setTimeout(() => {
+      modal.classList.add("hidden");
+    }, 300);
+  };
+
+  openModalBtn.addEventListener("click", () => handleOpenModal());
+  closeModalBtn.addEventListener("click", () => handleCloseModal());
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) handleCloseModal();
+  });
+}

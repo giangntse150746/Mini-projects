@@ -7,7 +7,7 @@ import {
   initGlobalMethods,
   initCheckAllActions,
   initFilterActions,
-  lsThemeNames,
+  initModalActions,
 } from "./setup.mjs";
 
 const collectionName = "words-by-theme-v1",
@@ -87,10 +87,12 @@ function filterWords(data) {
     isFirstLoad = false;
   } else filteredItems = data.find((item) => item.theme === _filter.theme).data;
 
-  // handle filter data
+  // handle data filtering by category
   if (!!_filter.category && _filter.category > 0) {
     filteredItems = filteredItems.filter((e) => e.num == _filter.category);
   }
+
+  // handle data filtering by category
   if (!!_filter.includes?.trim()) {
     const lsIncluded = _filter.includes
       .split(",")
@@ -113,6 +115,7 @@ function filterWords(data) {
     }
   }
 
+  // handle data filtering by category
   if (!!_filter.excludes?.trim()) {
     const lsExcludes = _filter.excludes
       .split(",")
@@ -164,9 +167,9 @@ async function loadWords() {
       container.appendChild(box);
     });
 
-    !isFirstLoad && initMainContentActions();
+    initMainContentActions();
 
-    !!_filter.category &&
+    if (!!_filter.category)
       setTimeout(() => {
         document.querySelector("#showAllCheckbox").click();
         if (document.querySelector("#showAllText").textContent.includes("Show"))
@@ -180,6 +183,14 @@ async function loadWords() {
 
 async function onChangeFilter(e, type) {
   _filter[type] = e.value;
+  if (type === "category") {
+    _filter.includes = "";
+    _filter.excludes = "";
+    const includes = document.getElementById("includes");
+    const excludes = document.getElementById("excludes");
+    includes.value = '';
+    excludes.value = '';
+  }
   return await loadWords();
 }
 
@@ -201,13 +212,13 @@ function initMainContentActions() {
   });
 }
 
-const createListItems = () => {
-  return lsThemeNames.map((name) => ({
+const createTheme = (theme = "New Theme", launchDate = new Date().toISOString()) => {
+  return {
     id: v4(),
-    theme: "Crypto Tools",
-    launchDate: "",
-    lastUpdateAt: new Date().toISOString(),
-    createAt: new Date().toISOString(),
+    theme: theme,
+    launchDate: launchDate,
+    lastUpdateAt: launchDate,
+    createAt: launchDate,
     data: [
       { title: "8 Letters", num: 8, words: [] },
       { title: "7 Letters", num: 7, words: [] },
@@ -216,7 +227,7 @@ const createListItems = () => {
       { title: "4 Letters", num: 4, words: [] },
       { title: "3 Letters", num: 3, words: [] },
     ],
-  }));
+  };
 };
 
 function initActions() {
@@ -242,15 +253,6 @@ function initActions() {
       await firebase.batchAdd(await loadFromFile(), collectionName, undefined, triggerAlert);
       await loadWords();
     }
-
-    // not done //
-    // handle create items
-    if (_data && e.ctrlKey && e.altKey && e.key === "C") {
-      e.preventDefault();
-      // main action
-      createListItems();
-      await loadWords();
-    }
   });
 }
 
@@ -258,6 +260,7 @@ function initActions() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   initGlobalMethods(); // add some rules/methods definition
+  initModalActions();
   await fetchData(); // fetch data from remote or local
   await loadWords(); // load data into elements
   initActions(); // init the actions
