@@ -337,9 +337,9 @@ body {
   }
   .card-swiper-buttons > button {
     border-width: 3px;
-    font-size: 6vmin;
-    height: 12vmin;
-    width: 12vmin;
+    font-size: 3vh;
+    height: 6vh;
+    width: 6vh;
   }
   #show-button {
     display: none;
