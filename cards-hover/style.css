@@ -258,16 +258,19 @@ body {
 }
 
 .card-swiper-buttons > button {
-  font-size: 2.5vmin;
   border: 0.4vmin solid rgb(200, 200, 200);
   background-color: transparent;
-  border-radius: 100%;
   place-items: center;
+  border-radius: 50%;
+  font-size: 2.5vmin;
   color: #ffffff;
+  cursor: pointer;
   height: 7vmin;
   width: 7vmin;
-  display: grid;
-  cursor: pointer;
+}
+.card-swiper-buttons > button > i {
+  padding: 0;
+  margin: 0;
 }
 
 #love-button,
@@ -332,7 +335,7 @@ body {
 
 /* Responsive phase */
 @media (max-width: 640px) {
-  /* .card-swiper-buttons {
+  .card-swiper-buttons {
     margin-top: 6vh;
   }
   .card-swiper-buttons > button {
@@ -340,7 +343,7 @@ body {
     font-size: 3vh;
     height: 6vh;
     width: 6vh;
-  } */
+  }
   #show-button {
     display: none;
   }
