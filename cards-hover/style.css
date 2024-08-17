@@ -293,10 +293,13 @@ body {
 #love-button:hover,
 #show-button:hover {
   color: white;
-  animation: bounce 1s forwards;
-  /* animation: shake 1s forwards; */
   background-color: #ff6378;
+  animation: bounce 1s forwards;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#show-button:hover {
+  animation: shake 1s forwards;
 }
 
 .bounce {
@@ -340,11 +343,14 @@ body {
 
 /* Responsive phase */
 @media (max-width: 640px) {
+  .card-swiper-buttons {
+    margin-top: 12vmin;
+  }
   .card-swiper-buttons > button {
     border-width: 3px;
-    font-size: 22px;
-    height: 10vmin;
-    width: 10vmin;
+    font-size: 6vmin;
+    height: 12vmin;
+    width: 12vmin;
   }
   #show-button {
     display: none;
