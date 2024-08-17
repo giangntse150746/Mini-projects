@@ -267,6 +267,7 @@ body {
   cursor: pointer;
   height: 7vmin;
   width: 7vmin;
+  padding: 0;
 }
 .card-swiper-buttons > button > i {
   padding: 0;
