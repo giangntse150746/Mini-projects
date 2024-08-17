@@ -263,7 +263,7 @@ body {
   background-color: transparent;
   border-radius: 100%;
   place-items: center;
-  color: white;
+  color: #ffffff;
   height: 7vmin;
   width: 7vmin;
   display: grid;
@@ -272,16 +272,16 @@ body {
 
 #love-button,
 #show-button {
-  background-color: white;
   color: #ff6378;
+  animation-delay: 0.5s;
   border-color: #ff6378;
+  background-color: #ffffff;
   transform: scaleX(1) translateY(0);
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  animation-delay: 0.5s;
 }
 #love-button:hover,
 #show-button:hover {
-  color: white;
+  color: #ffffff;
   background-color: #ff6378;
   animation: bounce 1s forwards;
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -332,15 +332,15 @@ body {
 
 /* Responsive phase */
 @media (max-width: 640px) {
-  .card-swiper-buttons {
-    margin-top: 12vmin;
+  /* .card-swiper-buttons {
+    margin-top: 6vh;
   }
   .card-swiper-buttons > button {
     border-width: 3px;
     font-size: 3vh;
     height: 6vh;
     width: 6vh;
-  }
+  } */
   #show-button {
     display: none;
   }
