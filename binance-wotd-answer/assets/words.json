@@ -22,6 +22,28 @@
     ]
   },
   {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "theme": "CPI",
+    "launchDate": "2024-08-19T04:35:25.151Z",
+    "lastUpdateAt": "2024-08-19T04:35:25.151Z",
+    "createAt": "2024-08-19T04:35:25.151Z",
+    "isPublic": true,
+    "data": [
+      {"title": "8 Letters", "num": 8, 
+      "words": ["ADOPTION"]},
+      {"title": "7 Letters", "num": 7, 
+      "words": ["CONTROL", "AVERAGE"]},
+      {"title": "6 Letters", "num": 6, 
+      "words": ["DEMAND", "POLICY", "BORROW", "CREDIT", "LENDER", "CHANGE"]},
+      {"title": "5 Letters", "num": 5, 
+      "words": ["GOODS", "TREND", "SPEND", "PRICE"]},
+      {"title": "4 Letters", "num": 4, 
+      "words": ["BANK"]},
+      {"title": "3 Letters", "num": 3, 
+      "words": ["FEE"]}
+    ]
+  },
+  {
     "id": "5fd27bc3-5980-42ec-992d-50385c9996d8",
     "theme": "Beyond Borders",
     "launchDate": "2024-08-12T04:35:25.151Z",
