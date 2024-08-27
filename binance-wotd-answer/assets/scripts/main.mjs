@@ -188,8 +188,8 @@ async function onChangeFilter(e, type) {
     _filter.excludes = "";
     const includes = document.getElementById("includes");
     const excludes = document.getElementById("excludes");
-    includes.value = '';
-    excludes.value = '';
+    includes.value = "";
+    excludes.value = "";
   }
   return await loadWords();
 }
@@ -251,7 +251,9 @@ function initActions() {
       e.preventDefault();
       // main action
       await firebase.batchAdd(await loadFromFile(), collectionName, undefined, triggerAlert);
-      await loadWords();
+      await fetchData(); // fetch data from remote or local
+      await loadWords(); // load data into elements
+      initActions(); // init the actions
     }
   });
 }
