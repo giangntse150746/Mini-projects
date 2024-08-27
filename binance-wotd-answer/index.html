@@ -23,11 +23,11 @@
   <div id="alert" class="alert-container">
     <span id="alertContent"></span>
   </div>
-  
+
   <div id="createThemeModal" tabindex="-1"
     class="hidden z-50 fixed top-0 right-0 left-0 overflow-y-auto overflow-x-hidden flex justify-center items-center w-full md:inset-0 h-full">
     <div id="createThemeModalBg" class="absolute z-0 inset-0 bg-gray-500 bg-opacity-0 duration-300"></div>
-    <div id="createThemeModalMain" class="relative p-4 w-full max-w-md max-h-full duration-300 opacity-0 scale-90">
+    <div id="createThemeModalMain" class="relative p-4 w-full max-w-xl max-h-full duration-300 opacity-0 scale-90">
       <!-- Modal content -->
       <div class="relative bg-white rounded-lg shadow">
         <!-- Modal header -->
@@ -47,35 +47,59 @@
         <!-- Modal body -->
         <form id="createThemeForm" class="p-4 md:p-5">
           <div class="grid gap-4 grid-cols-2">
-            <div class="col-span-2">
-              <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
-              <input type="text" name="name" id="name"
+            <div class="col-span-2 md:col-span-1">
+              <label for="theme" class="block mb-2 text-sm font-medium text-gray-900">Theme</label>
+              <input type="text" name="theme" id="createTheme_theme"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                placeholder="Type product name" required="">
+                placeholder="Enter Theme's name..." required>
             </div>
             <div class="col-span-2 sm:col-span-1">
-              <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
-              <input type="number" name="price" id="price"
+              <label for="theme" class="block mb-2 text-sm font-medium text-gray-900">Launch Date</label>
+              <input type="date" name="theme" id="createTheme_launchDate"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
-                placeholder="$2999" required="">
+                placeholder="Enter Theme's launch date..." required>
             </div>
             <div class="col-span-2 sm:col-span-1">
-              <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
-              <select id="category"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
-                <option selected="">Select category</option>
-                <option value="TV">TV/Monitors</option>
-                <option value="PC">PC</option>
-                <option value="GA">Gaming/Console</option>
-                <option value="PH">Phones</option>
-              </select>
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                8 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
             </div>
-            <div class="col-span-2">
-              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Product
-                Description</label>
-              <textarea id="description" rows="4"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Write product description here"></textarea>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                7 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                6 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                5 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                4 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
+                3 Letters
+              </label>
+              <textarea class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
+                id="description" rows="1" placeholder="Enter words (splitted by comma)..."></textarea>
             </div>
             <div class="col-span-2">
               <button id="submitCreate" type="submit"
@@ -91,16 +115,16 @@
 
   <article data-type="post" data-url="/en/crypto/binance-wotd-answer">
     <div class="article__title">
-      <div class="text-[24px] font-semibold my-3 hidden xl:flex">
+      <div class="text-[24px] font-semibold my-3 hidden xl:flex items-center gap-2 w-[294px]">
         <span class="bg-[#ffd419] p-3 rounded-lg">Binance</span>
         <span id="title" class="text-green-700 text-[27px]">WOTD</span> Answers
       </div>
       <div class="w-20 h-20 mx-3">
         <img width="100%" src="assets/images/logo.png">
       </div>
-      <div class="filter-container flex gap-3 my-8 text-[14px]">
+      <div class="filter-container flex gap-3 my-8 text-[14px] w-[294px] flex justify-end">
         <button id="openModal"
-          class="px-3 py-2 font-semibold rounded-lg shadow-md border-2 duration-300 hover:duration-500 text-blue-600 bg-white border-blue-600 hover:text-white hover:bg-[#ffd419] hover:border-[#ffd419]">
+          class="px-3 py-2 font-semibold rounded-lg shadow-md border-2 duration-300 hover:duration-500 text-blue-600 bg-white border-blue-600 hover:text-white hover:bg-blue-600">
           NEW THEME
         </button>
       </div>

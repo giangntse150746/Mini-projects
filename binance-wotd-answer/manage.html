@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Themes</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="container mx-auto bg-white shadow-lg rounded-lg p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold">Theme Management</h1>
+      <button id="create-theme" class="bg-blue-500 text-white px-4 py-2 rounded">Create Theme</button>
+    </div>
+
+    <table class="min-w-full bg-white">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="w-3/6 py-2 px-4 border-b">Name</th>
+          <th class="w-2/6 py-2 px-4 border-b">Launch Date</th>
+          <th class="w-1/6 py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="theme-table">
+        <!-- Theme rows will be injected here by JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal for creating/editing themes -->
+  <div id="theme-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden justify-center items-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+      <h2 id="modal-title" class="text-xl font-bold mb-4">Create Theme</h2>
+      <input type="text" id="modal-theme-name" placeholder="Theme Name"
+        class="w-full p-2 mb-4 border border-gray-300 rounded">
+      <input type="number" id="modal-theme-price" placeholder="Theme Price"
+        class="w-full p-2 mb-4 border border-gray-300 rounded">
+      <div class="flex justify-end">
+        <button id="modal-save" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">Save</button>
+        <button id="modal-cancel" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/scripts/manage.js"></script>
+</body>
+
+</html>
