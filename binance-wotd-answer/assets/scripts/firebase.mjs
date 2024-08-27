@@ -44,11 +44,15 @@ export const firebase = {
   },
   saveData: async (data, cName, prop = "id", callback = () => {}) => {
     if (!data) return;
+    try {
+      const ref = doc(db, cName, data[prop]);
+      await setDoc(ref, data);
+      callback("success", "Data is uploaded successfully!");
+    } catch (error) {
+      console.log(`Error performing setDoc: ${error}`);
+      callback("error", "Data is failed to upload!");
+    }
 
-    const ref = doc(db, cName, data[prop]);
-    await setDoc(ref, data);
-
-    callback("Data saved to Firebase");
   },
   batchAdd: async (list, cName, prop = "id", callback = () => {}) => {
     const batch = writeBatch(db);

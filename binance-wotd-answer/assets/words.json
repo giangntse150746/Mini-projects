@@ -22,6 +22,28 @@
     ]
   },
   {
+    "id": "b0b508f2-4456-4c57-8cfe-05eab4b6fb94",
+    "theme": "ETH ETFs",
+    "launchDate": "2024-08-26T04:35:25.151Z",
+    "lastUpdateAt": "2024-08-26T04:35:25.151Z",
+    "createAt": "2024-08-26T04:35:25.151Z",
+    "isPublic": true,
+    "data": [
+      {"title": "8 Letters", "num": 8, 
+      "words": ["SOLUTION", "EVERYDAY", "APPROVAL", "PRESSURE", "INNOVATE"]},
+      {"title": "7 Letters", "num": 7, 
+      "words": ["DYNAMIC", "INSTANT"]},
+      {"title": "6 Letters", "num": 6, 
+      "words": ["ACCEPT", "DEMAND", "LAUNCH", "INFLOW"]},
+      {"title": "5 Letters", "num": 5, 
+      "words": ["ETHER", "PRICE", "USAGE"]},
+      {"title": "4 Letters", "num": 4, 
+      "words": ["ETFS"]},
+      {"title": "3 Letters", "num": 3, 
+      "words": ["ETH"]}
+    ]
+  },
+  {
     "id": "98306c52-63ce-45d9-aef0-97fdf1871c6f",
     "theme": "CPI",
     "launchDate": "2024-08-19T04:35:25.151Z",
