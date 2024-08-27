@@ -1,85 +1,51 @@
-<!-- DUMMY OR TESTING PAGE -->
-<div style="box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;padding: 0 3rem;">
-  <img src="https://ac.tourchain.net/fm/Files//VIKING-LOGO.png" height="90">
-  <div style="font-family: 'Roboto';">
-    <p style="margin: 0;">
-      <b style="color: red;">a:</b>
-      79 Tran Hung Dao St., District 1, Ho Chi Minh City, Vietnam
-    </p>
-    <p style="margin: 0;">
-      <b style="color: red;">t:</b>
-      (+84 8) 39 144 145 , 39 144 155 f: (+84 8) 39 144 119
-    </p>
-    <p style="margin: 0;">
-      <b style="color: red;">e:</b>
-      inbound@vikingvietnam.com w: www.vikingvietnam.com
-    </p>
-    <p style="margin: 0;">
-      <b style="color: red;">hotlines:</b>
-      (+84) 913 91 91 30 (english)
-    </p>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Header Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
 
-<table border="1" style="width: 100%; border-spacing: 0;font-family: 'Palatino Linotype';">
-  <tbody>
-    <tr>
-      <td rowspan="6" style="width: 45%;">
-        <div style="text-transform: uppercase; text-align: center;">
-          <p style="font-size: 20px;">
-            <b>[#CONFIRMATION CODE#]:</b>
-            <span style="color: red">{{bookingCode}}</span>
-          </p>
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" class="text-xl font-bold text-gray-900">Brand</a>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="text-gray-900 hover:text-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-1">Home</a>
+                        <a href="#" class="text-gray-900 hover:text-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-1">About</a>
+                        <a href="#" class="text-gray-900 hover:text-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-1">Services</a>
+                        <a href="#" class="text-gray-900 hover:text-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-1">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menu-button" class="text-gray-900 hover:text-blue-500 focus:outline-none focus:text-blue-500">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
-        <ol style="padding-left: 1.15rem;">
-          <li>
-            [#Confirmed by Tour Operator#]:
-            <span style="color: red;">{{confirmedUser}}</span>
-          </li>
-          <li>
-            [#Emergency Number#]:
-            [#see our hotline numbers above#]
-          </li>
-        </ol>
-        <div>
-          {{flightList}}
+
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-blue-100 transition duration-300 ease-in-out">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-blue-100 transition duration-300 ease-in-out">About</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-blue-100 transition duration-300 ease-in-out">Services</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-blue-100 transition duration-300 ease-in-out">Contact</a>
+            </div>
         </div>
-      </td>
-      <td>[#Welcome board#]</td>
-      <td style="text-align: center; text-transform: uppercase;">{{welcomeBoard}}</td>
-    </tr>
-    <tr>
-      <td>[#noOfPax#]</td>
-      <td style="text-transform: uppercase;">{{noOfPax}} [#pax#] {{strTourLeader}} </td>
-    </tr>
-    <tr>
-      <td>[#noOfRoom#]</td>
-      <td style="">
-        {{roomingListWithSummary}}
-      </td>
-    </tr>
-    <tr>
-      <td>[#tour-guide#]</td>
-      <td style="text-transform: uppercase; color: red;"><b>{{guideList}}</b></td>
-    </tr>
-    <tr>
-      <td>[#transfer#]</td>
-      <td style="text-transform: uppercase;">{{strVehicle}}</td>
-    </tr>
-    <tr>
-      <td style="text-transform: uppercase; color: red;"><b>[#remarks#]</b></td>
-      <td style="text-transform: uppercase;">{{remark}}</td>
-    </tr>
-    <tr>
-      <td colspan="3" style="text-align: center;">
-        <h3 style="text-transform: uppercase;">[#itinerary#]</h3>
-        <p>([#Order of itinerary is subject to change but assures enough all the sightseeing spots#])</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        {{service_tourDescription}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+    </nav>
+
+    <div class="mt-20 p-8">
+        <h1 class="text-3xl font-bold">Welcome to Our Website</h1>
+        <p class="mt-4 text-gray-600">This is a simple example of an animated header menu using Tailwind CSS.</p>
+    </div>
+
+</body>
+</html>

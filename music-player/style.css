@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  margin: auto;
+  max-width: 100%;
+  width: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body-background {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.body-background > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.demoWrapper {
+  padding: 10px;
+  background: white;
+  box-sizing: border-box;
+  resize: horizontal;
+  border: 1px dashed;
+  overflow: auto;
+  max-width: 100%;
+  height: calc(100vh - 16px);
+}
+
+.wrapper {
+  position: relative;
+
+  position: absolute;
+  /*height: 420px;*/
+  width: 300px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: visible;
+  text-shadow: 0 0.025em black;
+  position: relative;
+  margin: auto;
+}
+
+.container {
+  width: clamp(45%, 280px, 40vw);
+  height: clamp(340px, 70vh, 90%);
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  margin: auto;
+  position: relative;
+  backdrop-filter: blur(18px) saturate(1.25);
+  box-sizing: border-box;
+  z-index: 2;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 0.025em rgb(69 82 98);
+  box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.2),
+    0 1.5em 2em -1em rgba(0, 0, 0, 0.8), inset 0 0.0625em 0 white,
+    inset 0 -0.125em 0.0625em rgba(0, 0, 0, 0.3);
+  border: 2px outset rgba(255, 255, 255, 0.3);
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+.track_image {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.trackbuttons {
+  display: flex;
+  align-items: center;
+  width: 56%;
+  justify-content: space-around;
+  margin: 4px 10px;
+  margin-top: 10px;
+}
+
+.trackbuttons .mybutton i {
+  z-index: 9;
+}
+
+img#thumbnail {
+  width: 55%;
+  height: auto;
+  position: relative;
+  bottom: 10px;
+}
+
+.vinylcover {
+  content: url(https://assets.codepen.io/4927073/VinylCover.png);
+  object-fit: cover;
+  z-index: 5;
+  width: 60%;
+  height: auto;
+  bottom: 6px;
+  position: absolute;
+  filter: contrast(1.25) saturate(2.5)
+    drop-shadow(0.5px 1px 1px rgba(0, 0, 0, 0.2));
+  opacity: 0.95;
+}
+
+.songtitles {
+  text-align: center;
+  width: 90%;
+  top: -2px;
+  position: relative;
+}
+
+.song-title {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 4px;
+  margin-top: 2px;
+  font-family: alfarn, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical;
+  color: hsl(200 2% 80% / 1);
+  text-shadow: -0.5px -0.5px 0.5px #000, 0.125px 0.15px 0.5px #ffff;
+}
+
+span#h2 {
+  font-family: "Lato", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-family: owners-narrow, sans-serif;
+  font-family: owners, sans-serif;
+  /* font-family: alfarn-2, sans-serif; */
+  font-weight: 400;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.song-artist {
+  font-size: 12px;
+  letter-spacing: 0.1rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  color: hsl(200 2% 70% / 1);
+  text-shadow: -0.5px -0.5px 0.5px #000, 0.125px 0.15px 0.5px #ffff;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical;
+  color: #ddd;
+}
+.song-artist {
+  letter-spacing: 0.1rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  text-shadow: -0.5px -0.5px 0.5px #000, 0.125px 0.15px 0.5px #ffff;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical;
+  color: #c9c9c9;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  font-family: "acumin-pro";
+}
+
+.playlist {
+  height: 22px;
+}
+
+.song-playlist {
+  font-size: 13px;
+  letter-spacing: 0.13rem;
+  top: -25px;
+  position: relative;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 1px;
+  padding-bottom: 8px;
+  padding-top: 20px;
+  color: hsl(213 5% 50% / 1);
+  mix-blend-mode: color;
+  font-weight: 400;
+  font-family: source-sans-pro, sans-serif;
+}
+
+.progressbar {
+  display: flex;
+  padding: 4px;
+  gap: 4px;
+  font-family: pf-videotext, sans-serif;
+  font-size: 12px;
+  color: white;
+}
+
+input#progress-bar {
+  margin: auto;
+  height: 6px;
+  border-radius: 10pt;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5), inset 0 0 4px 2px rgba(0, 0, 0, 0.3),
+    0px -2px 2px rgba(0, 0, 0, 0.5), 0px 2px 2px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.mybutton {
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 50%;
+  box-shadow: 0 -2px 4px 0 rgb(255 255 255 / 10%);
+  margin: 0;
+
+  font-size: 15px;
+
+  padding: 7px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.mybutton::before,
+.mybutton::after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.04)
+  );
+}
+
+.mybutton::before {
+  box-shadow: 0 -1px 1px 0 rgb(255 255 255 / 60%);
+  mix-blend-mode: overlay;
+}
+
+.mybutton::after {
+  box-shadow: 0 5px 10px 0 rgb(0 0 0 / 60%);
+  mix-blend-mode: soft-light;
+}
+
+.mybutton:active {
+  box-shadow: inset 0 -2px 4px 1px hsl(0deg 0% 95% / 30%),
+    inset -1px -2px 4px -4px hsl(0deg 0% 95% / 30%);
+  background: hsl(0deg 0% 3% / 8%);
+
+  transform: scale(0.995);
+}
+
+.fa-play:before,
+.fa-pause:before,
+.fa-backward:before,
+.fa-forward:before {
+  text-shadow: 0 1px 1px rgb(255 255 255 / 20%);
+}
+
+/** KEYFRAMES **/
+
+@keyframes flip {
+  from {
+    transform: rotateY(-10deg) scale(1.1);
+  }
+  to {
+    transform: rotateY(10 deg) scale(1.1);
+  }
+}
+
+/** MEDIA LAYOUTS **/
+@media (max-width: 730px) {
+  .container {
+    width: 260px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: 250px;
+    height: 340px;
+  }
+}
+
+@media (max-height: 400px) {
+  .container {
+    width: 220px;
+    width: 210px;
+    height: 250px;
+  }
+  .track_image {
+    margin-top: 0px;
+  }
+
+  .song-title {
+    font-size: 14px;
+    margin-top: -8px;
+  }
+
+  .song-artist {
+    font-size: 12px;
+  }
+  .progressbar {
+    padding: 0px;
+
+    font-size: 11px;
+  }
+
+  .mybutton {
+    width: 22px;
+    height: 22px;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+}
