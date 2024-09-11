@@ -22,6 +22,28 @@
     ]
   },
   {
+    "id": "89feddc8-dc85-4cf8-8906-135c7d2a954e",
+    "theme": "Trading Signals",
+    "launchDate": "2024-09-09T04:35:25.151Z",
+    "lastUpdateAt": "2024-09-09T04:35:25.151Z",
+    "createAt": "2024-09-09T04:35:25.151Z",
+    "isPublic": true,
+    "data": [
+      {"title": "8 Letters", "num": 8, 
+      "words": ["INDICATE", "MOMENTUM", "OVERSOLD", "REVERSAL"]},
+      {"title": "7 Letters", "num": 7, 
+      "words": ["BEARING", "BULLISH"]},
+      {"title": "6 Letters", "num": 6, 
+      "words": ["FUTURE", "SIGNAL"]},
+      {"title": "5 Letters", "num": 5, 
+      "words": ["PRICE", "TRADE", "POINT", "TREND", "ASSET"]},
+      {"title": "4 Letters", "num": 4, 
+      "words": ["FLAG", "PUMP"]},
+      {"title": "3 Letters", "num": 3, 
+      "words": ["RSI"]}
+    ]
+  },
+  {
     "id": "b0b508f2-4456-4c57-8cfe-05eab4b6fb94",
     "theme": "ETH ETFs",
     "launchDate": "2024-08-26T04:35:25.151Z",
