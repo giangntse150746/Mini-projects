@@ -41,7 +41,7 @@
         (document.getElementById("seconds").innerText = Math.floor((distance % minute) / second));
 
       //do something later when date is near or reached
-      if (true) {
+      if (distance < 0) {
         document.getElementById("headline").innerText = "It's Giải Phóng Timeeee!!!";
         document.getElementById("container").classList.add("event-now");
         document.getElementById("countdown").style.display = "none";
