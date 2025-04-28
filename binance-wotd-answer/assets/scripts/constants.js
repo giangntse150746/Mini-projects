@@ -1,5 +1,6 @@
 
 export const lsThemeNames = [
+  "Binance VIP",
   "Binance 7YA",
   "Binance Build",
   "Futures Chat Room",
